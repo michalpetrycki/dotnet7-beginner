@@ -11,26 +11,27 @@ namespace beginner.Services.CharacterService
             new Character(),
             new Character { Id = 3, Name="Sam"}
         };
-        public async Task<List<Character>> AddCharacter(Character newCharacter)
+        public async Task<ServiceResponse<List<GetCharacterDTO>>> AddCharacter(AddCharacterDTO newCharacter)
         {
+            var serviceResponse = new ServiceResponse<List<GetCharacterDTO>>();
             characters.Add(newCharacter);
-            return characters;
+            serviceResponse.Data = characters;
+            return serviceResponse;
         }
 
-        public async Task<List<Character>> GetAllCharacters()
+        public async Task<ServiceResponse<List<GetCharacterDTO>>> GetAllCharacters()
         {
-            return characters;
+            var serviceResponse = new ServiceResponse<List<GetCharacterDTO>>();
+            serviceResponse.Data = characters;
+            return serviceResponse;
         }
 
-        public async Task<Character> GetCharacterById(int id)
+        public async Task<ServiceResponse<GetCharacterDTO>> GetCharacterById(int id)
         {
+            var serviceResponse = new ServiceResponse<GetCharacterDTO>();
             var character = characters.FirstOrDefault(c => c.Id == id);
-
-            if (character is not null)
-                return character;
-
-            throw new Exception("Character not found");
-
+            serviceResponse.Data = character;
+            return serviceResponse;
         }
     }
 }
