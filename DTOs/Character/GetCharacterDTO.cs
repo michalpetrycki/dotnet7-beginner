@@ -7,7 +7,7 @@ namespace beginner.DTOs.Character
 {
     public class GetCharacterDTO
     {
-         public int Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = "Frodo";
 
         public int HitPoints { get; set; } = 100;
@@ -17,7 +17,7 @@ namespace beginner.DTOs.Character
         public int Defense { get; set; } = 10;
 
         public int Intelligence { get; set; } = 10;
-        
+
         public RpgClass Class { get; set; } = RpgClass.Knight;
     }
 }
