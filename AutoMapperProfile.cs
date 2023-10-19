@@ -11,6 +11,7 @@ namespace beginner
         {
             CreateMap<Character, GetCharacterDTO>();
             CreateMap<AddCharacterDTO, Character>();
+            CreateMap<UpdateCharacterDTO, Character>();
         }
     }
 }
